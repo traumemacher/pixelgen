@@ -40,9 +40,8 @@ function setColor() {
 		canvas.width = rows * pixelSize;
 		canvas.height = rows * pixelSize;
 
-		var count = 0;
-		var x = getRandomInt(rows);
-		var y = getRandomInt(rows);
+		var x = getRandomInt(rows)*pixelSize;
+		var y = getRandomInt(rows)*pixelSize;
 
 		var newColors = [];
 		for (var j = 0; j < seed.length; j++) {
