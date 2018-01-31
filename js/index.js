@@ -1,6 +1,6 @@
 //Settings//
 var speed = 250; //ms
-var pixelSize = 20; //px
+var pixelSize = 1; //px
 var seed = new Date().getTime().toString().slice(-6) + "1111";
 var colors = ["#3498db", "#ffffff", "#1abc9c", "#e74c3c", "#9b59b6", "#2ecc71", "#f39c12", "#ffffff", "#f1c40f", "#c0392b"];
 ////
