@@ -1,5 +1,6 @@
 //Settings//
 var speed = 250; //ms
+var rows = 50;
 var pixelSize = 10; //px
 var seed = new Date().getTime().toString().slice(-6) + "1111";
 var colors = ["#3498db", "#ffffff", "#1abc9c", "#e74c3c", "#9b59b6", "#2ecc71", "#f39c12", "#ffffff", "#f1c40f", "#c0392b"];
@@ -24,9 +25,17 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
+function getRandomColor() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
 function setColor() {
-		//var rows = Math.round(window.innerHeight / 24);
-	  var rows = 30;
+		//var rows = Math.round(window.innerHeight / 24);	  
 		if (document.querySelector("canvas")) {
 				var canvas = document.querySelector("canvas");
 		} else {
@@ -49,9 +58,11 @@ function setColor() {
 			newColors.push(colors[num]);
 		}
 
-		context.clearRect(x, y, canvas.width, canvas.height);
-		context.fillStyle = newColors[Math.floor(Math.random() * newColors.length) + 0];
+	  //context.save();
+		//context.clearRect(x, y, canvas.width, canvas.height);
+		context.fillStyle = getRandomColor();
 		context.fillRect(x, y, pixelSize, pixelSize);
+	  //context.restore();
 }
 
 function createCanvas() {
