@@ -1,4 +1,6 @@
 //Settings//
+var canvas;
+var context;
 var speed = 250; //ms
 var rows = 50;
 var pixelSize = 10; //px
@@ -16,6 +18,20 @@ document.addEventListener("DOMContentLoaded", function() {
 						clearInterval(revolutions);
 				}, false);
 		}
+	
+	//var rows = Math.round(window.innerHeight / 24);	  
+		if (document.querySelector("canvas")) {
+				canvas = document.querySelector("canvas");
+		} else {
+				canvas = document.createElement("canvas");
+				document.body.appendChild(canvas);
+		}
+
+		context = canvas.getContext("2d");
+		canvas.style.marginLeft = -(rows * pixelSize / 2) + "px";
+		canvas.style.marginTop = -(rows * pixelSize) / 2 + "px";
+		canvas.width = rows * pixelSize;
+		canvas.height = rows * pixelSize;
 
 		toggle();
 		document.querySelector("#start").addEventListener("click", toggle);
@@ -34,21 +50,7 @@ function getRandomColor() {
     return color;
 }
 
-function setColor() {
-		//var rows = Math.round(window.innerHeight / 24);	  
-		if (document.querySelector("canvas")) {
-				var canvas = document.querySelector("canvas");
-		} else {
-				var canvas = document.createElement("canvas");
-				document.body.appendChild(canvas);
-		}
-
-		var context = canvas.getContext("2d");
-		canvas.style.marginLeft = -(rows * pixelSize / 2) + "px";
-		canvas.style.marginTop = -(rows * pixelSize) / 2 + "px";
-		canvas.width = rows * pixelSize;
-		canvas.height = rows * pixelSize;
-
+function setColor() {		
 		var x = getRandomInt(rows)*pixelSize;
 		var y = getRandomInt(rows)*pixelSize;
 
