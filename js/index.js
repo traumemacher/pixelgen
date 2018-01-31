@@ -111,5 +111,4 @@ function createCanvas() {
 function seedGen() {
 		seed = document.querySelector("#seed").value;
 		//createCanvas();
-	  setColor();
 }
